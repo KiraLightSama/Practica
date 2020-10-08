@@ -38,4 +38,3 @@ Route::resource('productos', 'ProductoController');
 
 Route::resource('cuentas', 'CuentaController');
 
-Route::resource('detalleCuentas', 'DetalleCuentaController');

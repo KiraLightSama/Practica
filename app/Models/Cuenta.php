@@ -76,6 +76,6 @@ class Cuenta extends Model
 
     public function productos()
     {
-        return $this->belongsToMany(\App\Models\Producto::class, 'cuentas_productos', 'cuenta_id', 'productos_id')->withPivot('cantidad');
+        return $this->belongsToMany(\App\Models\Producto::class, 'cuentas_productos', 'cuenta_id', 'producto_id')->withPivot('cantidad');
     }
 }

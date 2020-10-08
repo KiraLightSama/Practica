@@ -14,7 +14,4 @@
     <a href="{{ route('cuentas.index') }}"><i class="fa fa-edit"></i><span>Cuentas</span></a>
 </li>
 
-<li class="{{ Request::is('detalleCuentas*') ? 'active' : '' }}">
-    <a href="{{ route('detalleCuentas.index') }}"><i class="fa fa-edit"></i><span>Detalle Cuentas</span></a>
-</li>
 

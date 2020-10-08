@@ -24,8 +24,8 @@ class CreateCuentasProductosTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->integer('productos_id', false, true);
-            $table->foreign('productos_id')
+            $table->integer('producto_id', false, true);
+            $table->foreign('producto_id')
                 ->references('id')
                 ->on('productos')
                 ->onUpdate('cascade')

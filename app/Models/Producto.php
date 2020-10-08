@@ -72,12 +72,12 @@ class Producto extends Model
      **/
     public function cuentasProductos()
     {
-        return $this->hasMany(\App\Models\CuentasProducto::class, 'productos_id');
+        return $this->hasMany(\App\Models\CuentasProducto::class, 'producto_id');
     }
 
     public function cuentas()
     {
-        return $this->belongsToMany(\App\Models\Cuenta::class, 'cuentas_productos', 'cuenta_id', 'productos_id')
+        return $this->belongsToMany(\App\Models\Cuenta::class, 'cuentas_productos', 'cuenta_id', 'producto_id')
             ->withPivot('cantidad');
     }
 }
