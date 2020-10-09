@@ -70,7 +70,7 @@
                 </div>
                 <div class="form-group col-sm-6 col-xs-6 has-error">
                     <label for="cantidad" class="control-label">Cantidad</label>
-                    <input type="number" class="form-control" name="cantidad[]"  value="{{$producto->pivot->cantidad}}" readonly>
+                    <input type="number" class="form-control" name="cantidad[]"  value="{{$producto->pivot->cantidad}}">
 
                 </div>
             @endif
@@ -87,7 +87,7 @@
                 </div>
                 <div class="form-group col-sm-6 col-xs-6 has-error">
                     <label for="cantidad" class="control-label">Cantidad</label>
-                    <input type="number" class="form-control" name="cantidad[]" value="{{$producto->pivot->cantidad}}" readonly>
+                    <input type="number" class="form-control" name="cantidad[]" value="{{$producto->pivot->cantidad}}">
                 </div>
             @endif
         @endforeach

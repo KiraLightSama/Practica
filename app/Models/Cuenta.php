@@ -66,14 +66,6 @@ class Cuenta extends Model
         return $this->belongsTo(\App\Models\User::class, 'user_id');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function cuentasProductos()
-    {
-        return $this->hasMany(\App\Models\CuentasProducto::class, 'cuenta_id');
-    }
-
     public function productos()
     {
         return $this->belongsToMany(\App\Models\Producto::class, 'cuentas_productos')->withPivot('cantidad');
