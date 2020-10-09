@@ -58,7 +58,7 @@ class CuentaController extends AppBaseController
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|Response
      */
-    public function store(Request $request)
+    public function store(CreateCuentaRequest $request)
     {
         $input = $request->all();
 
@@ -121,7 +121,7 @@ class CuentaController extends AppBaseController
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|Response
      */
-    public function update($id, Request $request)
+    public function update($id, UpdateCuentaRequest $request)
     {
         $cuenta = $this->cuentaRepository->find($id);
 
