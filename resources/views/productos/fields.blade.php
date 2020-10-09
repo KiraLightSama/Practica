@@ -16,9 +16,9 @@
         <label for="categoria">Categoria</label>
         <select name="categoria" id="" class="form-control">
             <option value=""></option>
-                <option value="1"
+                <option value="Comidas"
                         @if(!(Request::is('*productos/create')) && $producto->categoria == 'Comida') selected = 'selected' @endif>Comidas</option>
-                <option value="2"
+                <option value="Bebidas"
                         @if(!(Request::is('*productos/create')) && $producto->categoria == 'Bebida') selected = 'selected' @endif>Bebidas</option>
         </select>
     </div>
