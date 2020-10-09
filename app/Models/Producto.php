@@ -45,7 +45,7 @@ class Producto extends Model
         'id' => 'integer',
         'nombre' => 'string',
         'precio' => 'integer',
-        'categoria' => 'enum'
+        'categoria' => 'string'
     ];
 
     /**
