@@ -47,7 +47,7 @@ class ProductoController extends AppBaseController
      */
     public function create()
     {
-        return view('productos.create', compact('categorias'));
+        return view('productos.create');
     }
 
     /**

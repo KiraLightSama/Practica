@@ -30,12 +30,12 @@
     @foreach($productos as $producto)
         @if($producto->categoria->nombre == "Comidas")
             <div class="form-group col-sm-6 col-xs-6">
-                <label for="nombre">{{ $producto->nombre }}</label>
+                <label>{{ $producto->nombre }}</label>
                 <input type="text" class="form-control" value="{{ $producto->precio }} Bs." readonly>
-                <input type="hidden" value="{{ $producto->id }}" name="productos_id[]">
+                <input type="hidden" value="{{ $producto->id }}" name="producto_id[]">
             </div>
             <div class="form-group col-sm-6 col-xs-6">
-                <label for="cantidad">Cantidad</label>
+                <label>Cantidad</label>
                 <input type="number" class="form-control" name="cantidad[]" value="0">
             </div>
         @endif
@@ -46,12 +46,12 @@
     @foreach($productos as $producto)
         @if($producto->categoria->nombre == "Bebidas")
             <div class="form-group col-sm-6 col-xs-6">
-                <label for="nombre">{{ $producto->nombre }}</label>
+                <label >{{ $producto->nombre }}</label>
                 <input type="text" class="form-control" value="{{ $producto->precio }} Bs." readonly>
-                <input type="hidden" value="{{ $producto->id }}" name="productos_id[]">
+                <input type="hidden" value="{{ $producto->id }}" name="producto_id[]">
             </div>
             <div class="form-group col-sm-6 col-xs-6">
-                <label for="cantidad">Cantidad</label>
+                <label>Cantidad</label>
                 <input type="number" class="form-control" name="cantidad[]" value="0">
             </div>
         @endif

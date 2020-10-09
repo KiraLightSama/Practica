@@ -58,13 +58,15 @@ class CuentaController extends AppBaseController
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|Response
      */
-    public function store(CreateCuentaRequest $request)
+    public function store(Request $request)
     {
         $input = $request->all();
 
         $cuenta = $this->cuentaRepository->create($input);
 
-        $cuenta->productos()->attach($request->productos_id, $request->cantidad);
+        for ($i = 0; $i < count($request->producto_id); $i++) {
+            $cuenta->productos()->attach($request->producto_id[$i], ['cantidad' => $request->cantidad[$i]]);
+        }
 
         Flash::success('Cuenta saved successfully.');
 

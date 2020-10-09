@@ -33,7 +33,7 @@ class Producto extends Model
     public $fillable = [
         'nombre',
         'precio',
-        'categoria_id'
+        'categoria'
     ];
 
     /**
@@ -45,7 +45,7 @@ class Producto extends Model
         'id' => 'integer',
         'nombre' => 'string',
         'precio' => 'integer',
-        'categoria_id' => 'integer'
+        'categoria' => 'enum'
     ];
 
     /**
@@ -56,16 +56,8 @@ class Producto extends Model
     public static $rules = [
         'nombre' => 'required',
         'precio' => 'required',
-        'categoria_id' => 'required'
+        'categoria' => 'required'
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function categoria()
-    {
-        return $this->belongsTo(\App\Models\Categoria::class, 'categoria_id');
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -77,7 +69,6 @@ class Producto extends Model
 
     public function cuentas()
     {
-        return $this->belongsToMany(\App\Models\Cuenta::class, 'cuentas_productos', 'cuenta_id', 'producto_id')
-            ->withPivot('cantidad');
+        return $this->belongsToMany(\App\Models\Cuenta::class, 'cuentas_productos')->withPivot('cantidad');
     }
 }

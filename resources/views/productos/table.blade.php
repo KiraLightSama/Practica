@@ -13,7 +13,7 @@
             <tr>
                 <td>{{ $producto->nombre }}</td>
                 <td>{{ $producto->precio }}</td>
-                <td>{{ $producto->categoria->nombre }}</td>
+                <td>{{ $producto->categoria }}</td>
                 <td>
                     {!! Form::open(['route' => ['productos.destroy', $producto->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

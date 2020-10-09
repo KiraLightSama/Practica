@@ -14,7 +14,7 @@
 <div class="form-group col-sm-6">
     <div class="form-group">
         <label for="categoria">Categoria</label>
-        <select name="categoria_id" id="" class="form-control">
+        <select name="categoria" id="" class="form-control">
             <option value=""></option>
                 <option value="1"
                         @if(!(Request::is('*productos/create')) && $producto->categoria->nombre == 'Comidas') selected = 'selected' @endif>Comidas</option>

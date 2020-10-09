@@ -17,13 +17,7 @@ class CreateProductosTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->integer('precio', false, true);
-
-            $table->integer('categoria_id', false, true);
-            $table->foreign('categoria_id')
-                ->references('id')
-                ->on('categorias')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+            $table->enum('categoria', ['Comida', 'Bebida']);
 
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);

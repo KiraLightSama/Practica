@@ -32,7 +32,7 @@ Route::get('/home', 'HomeController@index')->middleware('verified');
 
 
 
-Route::resource('categorias', 'CategoriaController');
+
 
 Route::resource('productos', 'ProductoController');
 
