@@ -12,7 +12,7 @@
 
 <!-- Categoria Id Field -->
 <div class="form-group">
-    {!! Form::label('categoria_id', 'Categoria Id:') !!}
-    <p>{{ $producto->categoria_id }}</p>
+    {!! Form::label('categoria', 'Categoria') !!}
+    <p>{{ $producto->categoria }}</p>
 </div>
 

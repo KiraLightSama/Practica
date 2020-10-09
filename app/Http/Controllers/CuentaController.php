@@ -121,9 +121,15 @@ class CuentaController extends AppBaseController
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|Response
      */
-    public function update($id, UpdateCuentaRequest $request)
+    public function update($id, Request $request)
     {
         $cuenta = $this->cuentaRepository->find($id);
+
+        $cuenta->productos()->detach($request->producto_id);
+
+        for ($i = 0; $i < count($request->producto_id); $i++) {
+            $cuenta->productos()->attach($request->producto_id[$i], ['cantidad' => $request->cantidad[$i]]);
+        }
 
         if (empty($cuenta)) {
             Flash::error('Cuenta not found');

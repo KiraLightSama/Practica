@@ -17,9 +17,9 @@
         <select name="categoria" id="" class="form-control">
             <option value=""></option>
                 <option value="1"
-                        @if(!(Request::is('*productos/create')) && $producto->categoria->nombre == 'Comidas') selected = 'selected' @endif>Comidas</option>
+                        @if(!(Request::is('*productos/create')) && $producto->categoria == 'Comida') selected = 'selected' @endif>Comidas</option>
                 <option value="2"
-                        @if(!(Request::is('*productos/create')) && $producto->categoria->nombre == 'Bebidas') selected = 'selected' @endif>Bebidas</option>
+                        @if(!(Request::is('*productos/create')) && $producto->categoria == 'Bebida') selected = 'selected' @endif>Bebidas</option>
         </select>
     </div>
 </div>
