@@ -13,7 +13,7 @@
 <!-- Categoria Field -->
 <div class="form-group col-sm-6">
     <div class="form-group">
-        <label for="categoria">Categoria</label>
+        <label for="categoria">Categorias</label>
         <select name="categoria" id="" class="form-control">
             <option value=""></option>
                 <option value="Comida"
