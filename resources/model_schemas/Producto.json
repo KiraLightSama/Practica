@@ -36,9 +36,9 @@
         "inView": true
     },
     {
-        "name": "categoria_id",
-        "dbType": "integer,false,true",
-        "htmlType": null,
+        "name": "categoria",
+        "dbType": "string",
+        "htmlType": "text",
         "validations": "required",
         "searchable": true,
         "fillable": true,
@@ -85,10 +85,6 @@
     },
     {
         "type": "relation",
-        "relation": "mt1,Categoria,categoria_id"
-    },
-    {
-        "type": "relation",
-        "relation": "1tm,CuentasProducto,productos_id"
+        "relation": "1tm,CuentasProducto,producto_id"
     }
 ]

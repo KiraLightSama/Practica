@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProductoRequest;
 use App\Http\Requests\UpdateProductoRequest;
-use App\Models\Categoria;
 use App\Repositories\ProductoRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -22,6 +21,7 @@ class ProductoController extends AppBaseController
 
     public function __construct(ProductoRepository $productoRepo)
     {
+        $this->middleware('auth');
         $this->productoRepository = $productoRepo;
     }
 
@@ -98,13 +98,14 @@ class ProductoController extends AppBaseController
     public function edit($id)
     {
         $producto = $this->productoRepository->find($id);
+
         if (empty($producto)) {
             Flash::error('Producto not found');
 
             return redirect(route('productos.index'));
         }
 
-        return view('productos.edit', compact('producto'));
+        return view('productos.edit')->with('producto', $producto);
     }
 
     /**

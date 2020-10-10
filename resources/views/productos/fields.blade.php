@@ -16,10 +16,10 @@
         <label for="categoria">Categorias</label>
         <select name="categoria" id="" class="form-control">
             <option value=""></option>
-                <option value="Comida"
-                        @if(!(Request::is('*productos/create')) && $producto->categoria == 'Comida') selected = 'selected' @endif>Comida</option>
-                <option value="Bebida"
-                        @if(!(Request::is('*productos/create')) && $producto->categoria == 'Bebida') selected = 'selected' @endif>Bebida</option>
+            <option value="Comida"
+                    @if(!(Request::is('*productos/create')) && $producto->categoria == 'Comida') selected = 'selected' @endif>Comida</option>
+            <option value="Bebida"
+                    @if(!(Request::is('*productos/create')) && $producto->categoria == 'Bebida') selected = 'selected' @endif>Bebida</option>
         </select>
     </div>
 </div>

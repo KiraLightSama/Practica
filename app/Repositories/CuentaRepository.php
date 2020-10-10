@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class CuentaRepository
  * @package App\Repositories
- * @version October 8, 2020, 2:22 pm -04
+ * @version October 10, 2020, 8:26 am -04
 */
 
 class CuentaRepository extends BaseRepository

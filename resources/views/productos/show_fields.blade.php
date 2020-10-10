@@ -10,9 +10,9 @@
     <p>{{ $producto->precio }}</p>
 </div>
 
-<!-- Categoria Id Field -->
+<!-- Categoria Field -->
 <div class="form-group">
-    {!! Form::label('categoria', 'Categoria') !!}
+    {!! Form::label('categoria', 'Categoria:') !!}
     <p>{{ $producto->categoria }}</p>
 </div>
 

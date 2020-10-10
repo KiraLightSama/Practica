@@ -12,6 +12,7 @@ use Flash;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Response;
 
@@ -22,6 +23,7 @@ class CuentaController extends AppBaseController
 
     public function __construct(CuentaRepository $cuentaRepo)
     {
+        $this->middleware('auth');
         $this->cuentaRepository = $cuentaRepo;
     }
 
@@ -65,7 +67,7 @@ class CuentaController extends AppBaseController
         $cuenta = $this->cuentaRepository->create($input);
 
         for ($i = 0; $i < count($request->producto_id); $i++) {
-            $cuenta->productos()->attach($request->producto_id[$i], ['cantidad' => $request->cantidad[$i]]);
+            $cuenta->productos()->attach($request->producto_id[$i], ['cantidad' => $request->cantidad[$i], 'precio' => $request->precio[$i]]);
         }
 
         Flash::success('Cuenta saved successfully.');
@@ -104,6 +106,7 @@ class CuentaController extends AppBaseController
     {
         $cuenta = $this->cuentaRepository->find($id);
         $productos = Producto::all();
+
         if (empty($cuenta)) {
             Flash::error('Cuenta not found');
 
@@ -128,7 +131,7 @@ class CuentaController extends AppBaseController
         $cuenta->productos()->detach($request->producto_id);
 
         for ($i = 0; $i < count($request->producto_id); $i++) {
-            $cuenta->productos()->attach($request->producto_id[$i], ['cantidad' => $request->cantidad[$i]]);
+            $cuenta->productos()->attach($request->producto_id[$i], ['cantidad' => $request->cantidad[$i], 'precio' => $request->precio[$i]]);
         }
 
         if (empty($cuenta)) {

@@ -1,7 +1,7 @@
 <!-- Fecha Field -->
 <div class="form-group col-sm-6">
     <label>Fecha: </label>
-    <input type="text" class="form-control" value="{{ date('d-m-Y', strtotime($cuenta->fecha)) }}" readonly>
+    <input type="text" class="form-control" value="{{ date('d/m/Y', strtotime($cuenta->fecha)) }}" readonly>
 </div>
 
 <!-- Cambio Field -->
@@ -17,7 +17,7 @@
         @if($producto->categoria == "Comida")
             <div class="form-group col-sm-6 col-xs-6 has-success">
                 <label for="nombre" class="control-label">{{ $producto->nombre }}</label>
-                <input type="text" class="form-control" value="{{ $producto->precio }} Bs." readonly>
+                <input type="text" class="form-control" value="{{ $producto->pivot->precio }} Bs." readonly>
                 <input type="hidden" value="{{ $producto->id }}" name="producto_id[]">
             </div>
             <div class="form-group col-sm-6 col-xs-6 has-error">
@@ -34,7 +34,7 @@
         @if($producto->categoria == "Bebida")
             <div class="form-group col-sm-6 col-xs-6 has-success">
                 <label for="nombre" class="control-label">{{ $producto->nombre }}</label>
-                <input type="text" class="form-control" value="{{ $producto->precio }} Bs." readonly>
+                <input type="text" class="form-control" value="{{ $producto->pivot->precio }} Bs." readonly>
                 <input type="hidden" value="{{ $producto->id }}" name="producto_id[]">
             </div>
             <div class="form-group col-sm-6 col-xs-6 has-error">

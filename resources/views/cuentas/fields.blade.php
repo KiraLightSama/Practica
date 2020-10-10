@@ -1,15 +1,14 @@
 <!-- Fecha Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-6" id='fecha'>
     {!! Form::label('fecha', 'Fecha:') !!}
-    {!! Form::date('fecha', Request::is('*cuentas/create') ? null : $cuenta->fecha, ['class' => 'form-control','id'=>'fecha']) !!}
+    {!! Form::date('fecha', Request::is('*cuentas/create') ? null : $cuenta->fecha, ['class' => 'form-control']) !!}
 </div>
 
 @push('scripts')
 <script type="text/javascript">
     $('#fecha').datetimepicker({
         format: 'YYYY-MM-DD',
-        useCurrent: false,
-        setDate: new Date()
+        useCurrent: true,
     })
 </script>
 @endpush
@@ -31,8 +30,8 @@
         @foreach($productos as $producto)
             @if($producto->categoria == "Comida")
                 <div class="form-group col-sm-6 col-xs-6 has-success">
-                    <label for="nombre" class="control-label">{{ $producto->nombre }}</label>
-                    <input type="text" class="form-control" value="{{ $producto->precio }} Bs." readonly>
+                    <label for="precio" class="control-label">{{ $producto->nombre }}</label>
+                    <input type="number" class="form-control" value="{{ $producto->precio }}" name="precio[]">
                     <input type="hidden" value="{{ $producto->id }}" name="producto_id[]">
                 </div>
                 <div class="form-group col-sm-6 col-xs-6 has-error">
@@ -47,8 +46,8 @@
         @foreach($productos as $producto)
             @if($producto->categoria == "Bebida")
                 <div class="form-group col-sm-6 col-xs-6 has-success">
-                    <label for="nombre" class="control-label">{{ $producto->nombre }}</label>
-                    <input type="text" class="form-control" value="{{ $producto->precio }} Bs." readonly>
+                    <label for="precio" class="control-label">{{ $producto->nombre }}</label>
+                    <input type="number" class="form-control" value="{{ $producto->precio }}" name="precio[]">
                     <input type="hidden" value="{{ $producto->id }}" name="producto_id[]">
                 </div>
                 <div class="form-group col-sm-6 col-xs-6 has-error">
@@ -64,13 +63,13 @@
         @foreach($cuenta->productos as $producto)
             @if($producto->categoria == "Comida")
                 <div class="form-group col-sm-6 col-xs-6 has-success">
-                    <label for="nombre" class="control-label">{{ $producto->nombre }}</label>
-                    <input type="text" class="form-control" value="{{ $producto->precio }} Bs." readonly>
+                    <label for="precio" class="control-label">{{ $producto->nombre }}</label>
+                    <input type="number" class="form-control" value="{{ $producto->pivot->precio }}" name="precio[]">
                     <input type="hidden" value="{{ $producto->id }}" name="producto_id[]">
                 </div>
                 <div class="form-group col-sm-6 col-xs-6 has-error">
                     <label for="cantidad" class="control-label">Cantidad</label>
-                    <input type="number" class="form-control" name="cantidad[]"  value="{{$producto->pivot->cantidad}}">
+                    <input type="number" class="form-control" name="cantidad[]" value="{{$producto->pivot->cantidad}}">
 
                 </div>
             @endif
@@ -81,8 +80,8 @@
         @foreach($cuenta->productos as $producto)
             @if($producto->categoria == "Bebida")
                 <div class="form-group col-sm-6 col-xs-6 has-success">
-                    <label for="nombre" class="control-label">{{ $producto->nombre }}</label>
-                    <input type="text" class="form-control" value="{{ $producto->precio }} Bs." readonly>
+                    <label for="precio" class="control-label">{{ $producto->nombre }}</label>
+                    <input type="number" class="form-control" value="{{ $producto->pivot->precio }}" name="precio[]">
                     <input type="hidden" value="{{ $producto->id }}" name="producto_id[]">
                 </div>
                 <div class="form-group col-sm-6 col-xs-6 has-error">

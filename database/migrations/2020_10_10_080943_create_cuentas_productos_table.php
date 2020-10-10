@@ -16,6 +16,7 @@ class CreateCuentasProductosTable extends Migration
         Schema::create('cuentas_productos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('cantidad', false, true);
+            $table->integer('precio', false, true);
 
             $table->integer('cuenta_id', false, true);
             $table->foreign('cuenta_id')
